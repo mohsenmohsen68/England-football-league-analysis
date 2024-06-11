@@ -1,5 +1,12 @@
-import data from "./getDataFromCsv";
-console.log('ma data',data);
+import { CsvReaderClass } from "./csvReaderClass";
+import { MatchReader } from "./matchReader";
+
+const myMatchDataObj = new MatchReader('football.csv');
+const data = myMatchDataObj.readCsvFile()
+const mydata = myMatchDataObj.typifyTheInput(data)
+
+
+console.log(mydata)
 
 let manUtdWins = 0;
 for(let match of data){
