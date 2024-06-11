@@ -1,20 +1,15 @@
-import { CsvReaderClass } from "./csvReaderClass";
+
+import { ConsoleReport } from "./consoleReport";
 import { MatchReader } from "./matchReader";
+import { Summary } from "./summary";
+import { WinsAnalysis } from "./winsAnalysis";
 
 const myMatchDataObj = new MatchReader('football.csv');
 const data = myMatchDataObj.readCsvFile()
-const mydata = myMatchDataObj.typifyTheInput(data)
+const myTypifiedMatches = myMatchDataObj.typifyTheInput(data)
+
+const reportNumberOne = new Summary(new WinsAnalysis('Liverpool'), new ConsoleReport())
+
+reportNumberOne.buildAndPrintReport(myTypifiedMatches)
 
 
-console.log(mydata)
-
-let manUtdWins = 0;
-for(let match of data){
-    if( match[1]==='Man United' && match[5] === 'H' ){
-        manUtdWins++;
-    }
-    if( match[2]==='Man United' && match[5] === 'A' ){
-        manUtdWins++;
-    }
-}
-console.log(`manchester united has won ${manUtdWins} games`)

@@ -1,9 +1,7 @@
 import { CsvReaderClass } from "./csvReaderClass";
 import { matchStatus } from "./utils";
 import { getDateFromString } from "./utils";
-
-
-type matchType = [Date, string, string, number, number, matchStatus, string]
+import { matchType } from "./MatchType";
 
 export class MatchReader extends CsvReaderClass<matchType> {
 
